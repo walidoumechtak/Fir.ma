@@ -25,7 +25,7 @@ import { FormError } from '../form-error'
 import { FormSuccess } from '../form-success'
 
 // import { login } from '@/actions/login'
-import { useSearchParams } from 'next/navigation'
+// import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/components/ui/input-otp'
 import { useAuth } from '../../hooks/useAuth';
@@ -36,9 +36,9 @@ import AuthGuard from './auth-guard';
 
 
 const LoginForm = () => {
-  const searchParams = useSearchParams();
-  const urlError = searchParams.get("error") === 'OAuthAccountNotLinked'
-    ? 'Email alreay in use whith different profider' : ''
+  // const searchParams = useSearchParams();
+  // const urlError = searchParams.get("error") === 'OAuthAccountNotLinked'
+  //   ? 'Email alreay in use whith different profider' : ''
 
   const setUserStore = useUserStore((state) => state?.setUserStore)
   const { setUser, setToken } = useAuth();
@@ -165,7 +165,7 @@ const LoginForm = () => {
                   />
                 </>
               )}
-              <FormError message={error || urlError} />
+              <FormError message={error} />
               <FormSuccess message={success} />
               <Button type='submit' disabled={isPending} className='w-full'>
                 {showTwoFactor ? 'Confirm' : 'Login'}
