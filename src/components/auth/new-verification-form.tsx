@@ -1,7 +1,7 @@
 "use client";
 
 // import { BeatLoader } from 'react-spinners'
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 
 import CardWrapper from "./card-wrapper";
 import { useCallback, useEffect, useState } from "react";
@@ -13,27 +13,27 @@ const NewVerificationForm = () => {
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
 
-  const searchParams = useSearchParams();
-  const token = searchParams.get("token");
+  // const searchParams = useSearchParams();
+  // const token = searchParams.get("token");
 
-  const onSubmit = useCallback(() => {
-    if (success || error) return;
+  // const onSubmit = useCallback(() => {
+  //   if (success || error) return;
 
-    if (!token) {
-      setError("Missing token");
-      return;
-    }
-    setSuccess("Verification successful!");
-    /*
-        newVerification(token)
-          .then((data) => {
-            setSuccess(data.success)
-            setError(data.error)
-          }).catch(() => {
-            setError("Something went wrong!")
-          })
-        */
-  }, [token, success, error]);
+  //   if (!token) {
+  //     setError("Missing token");
+  //     return;
+  //   }
+  //   setSuccess("Verification successful!");
+  //   /*
+  //       newVerification(token)
+  //         .then((data) => {
+  //           setSuccess(data.success)
+  //           setError(data.error)
+  //         }).catch(() => {
+  //           setError("Something went wrong!")
+  //         })
+  //       */
+  // }, [token, success, error]);
 
   useEffect(() => {
     onSubmit();

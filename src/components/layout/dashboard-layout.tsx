@@ -37,12 +37,12 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       icon: BarChart,
       active: pathname === "/analytics",
     },
-    {
-      href: "/settings",
-      label: "Settings",
-      icon: Settings,
-      active: pathname === "/settings",
-    },
+    // {
+    //   href: "/settings",
+    //   label: "Settings",
+    //   icon: Settings,
+    //   active: pathname === "/settings",
+    // },
   ]
 
   return (

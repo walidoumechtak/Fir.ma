@@ -23,7 +23,7 @@ import { Button } from '@/components/ui/button'
 import { FormError } from '../form-error'
 import { FormSuccess } from '../form-success'
 
-import { useSearchParams } from 'next/navigation'
+
 // import { newPassword } from '@/actions/new-password'
 import axios from '../../api/axios'
 import { getCsrfToken } from '../../hooks/useRefreshToken'
