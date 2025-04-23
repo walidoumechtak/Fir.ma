@@ -115,6 +115,7 @@ export function AddFarmModal({ isOpen, onClose, onAddFarm }: AddFarmModalProps) 
         <div className="py-4">
           {step === 1 && <FarmDetailsStep formData={formData} updateFormData={updateFormData} onNext={handleNext} />}
           {step === 2 && (
+            // <div></div>
             <LocationStep formData={formData} updateFormData={updateFormData} onNext={handleNext} onBack={handleBack} />
           )}
           {step === 3 && (
