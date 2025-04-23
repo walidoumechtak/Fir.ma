@@ -10,34 +10,48 @@ import { FormSuccess } from "../form-success";
 import { FormError } from "../form-error";
 
 const NewVerificationForm = () => {
-  const [error, setError] = useState<string | undefined>();
-  const [success, setSuccess] = useState<string | undefined>();
+  // const [error, setError] = useState<string | undefined>();
+  // const [success, setSuccess] = useState<string | undefined>();
 
-  // const searchParams = useSearchParams();
-  // const token = searchParams.get("token");
+  // // const searchParams = useSearchParams();
+  // // const token = searchParams.get("token");
 
   // const onSubmit = useCallback(() => {
-  //   if (success || error) return;
+  //   // const token = searchParams.get("token");
+  //   // if (!token) {
+  //   //   setError("Missing token");
+  //   //   return;
+  //   // }
+  //   // newVerification(token)
+  //   //   .then((data) => {
+  //   //     setSuccess(data.success);
+  //   //     setError(data.error);
+  //   //   })
+  //   //   .catch(() => {
+  //   //     setError("Something went wrong!");
+  //   //   });
+  // }
+  // //   if (success || error) return;
 
-  //   if (!token) {
-  //     setError("Missing token");
-  //     return;
-  //   }
-  //   setSuccess("Verification successful!");
-  //   /*
-  //       newVerification(token)
-  //         .then((data) => {
-  //           setSuccess(data.success)
-  //           setError(data.error)
-  //         }).catch(() => {
-  //           setError("Something went wrong!")
-  //         })
-  //       */
-  // }, [token, success, error]);
+  // //   if (!token) {
+  // //     setError("Missing token");
+  // //     return;
+  // //   }
+  // //   setSuccess("Verification successful!");
+  // //   /*
+  // //       newVerification(token)
+  // //         .then((data) => {
+  // //           setSuccess(data.success)
+  // //           setError(data.error)
+  // //         }).catch(() => {
+  // //           setError("Something went wrong!")
+  // //         })
+  // //       */
+  // // }, [token, success, error]);
 
-  useEffect(() => {
-    onSubmit();
-  }, [onSubmit]);
+  // useEffect(() => {
+  //   onSubmit();
+  // }, [onSubmit]);
 
   return (
     <CardWrapper
@@ -46,12 +60,12 @@ const NewVerificationForm = () => {
       backButtonHref="/login"
     >
       <div className="flex items-center w-full justify-center">
-        {!success && !error && (
+        {/* {!success && !error && (
           // <BeatLoader />
           <></>
         )}
         <FormSuccess message={success} />
-        {!success && <FormError message={error} />}
+        {!success && <FormError message={error} />} */}
       </div>
     </CardWrapper>
   );
