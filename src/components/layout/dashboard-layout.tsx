@@ -81,10 +81,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             </nav>
           </SheetContent>
         </Sheet>
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Droplets className="h-6 w-6 text-green-600" />
           <span className="text-lg font-bold hidden md:inline-flex">Health Farm</span>
-        </div>
+        </Link>
         <nav className="ml-auto flex items-center gap-4">
           <div className="hidden md:flex gap-2">
             {routes.map((route, i) => (

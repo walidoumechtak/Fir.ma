@@ -70,7 +70,7 @@ const LoginForm = () => {
       // Example: await login(values);
 
       // Navigate to /dashboard after successful login
-      router.push('/dashboard');
+      router.push('/farms');
     } catch (error) {
       setError('An error occurred during login. Please try again.');
     } finally {
