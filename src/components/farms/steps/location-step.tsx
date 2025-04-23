@@ -68,10 +68,10 @@ export function LocationStep({ formData, updateFormData, onNext, onBack }: any) 
   // Initialize map and fix marker icons
   useEffect(() => {
     setMounted(true)
-    if (typeof window !== "undefined") {
-      delete (L.Icon.Default.prototype as any)._getIconUrl
-      L.Icon.Default.mergeOptions(createMarkerIcon().options)
-    }
+    // if (typeof window !== "undefined") {
+    //   delete (L.Icon.Default.prototype as any)._getIconUrl
+    //   L.Icon.Default.mergeOptions(createMarkerIcon().options)
+    // }
   }, [])
 
   // Fix map sizing issues
