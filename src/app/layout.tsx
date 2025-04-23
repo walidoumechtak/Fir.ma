@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { DashboardLayout } from "@/components/layout/dashboard-layout"
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -49,6 +51,7 @@ export default function RootLayout({
             <main>
               <AuthProvider>
                 {/* <QueryProvider>{children}</QueryProvider> */}
+                {/* <DashboardLayout>{children}</DashboardLayout> */}
                 {children}
                 <Toaster />
               </AuthProvider>

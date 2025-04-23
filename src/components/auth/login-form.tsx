@@ -64,7 +64,18 @@ const LoginForm = () => {
   })
 
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
-    
+    try {
+      setIsPending(true);
+      // Simulate login logic or API call here
+      // Example: await login(values);
+
+      // Navigate to /dashboard after successful login
+      router.push('/dashboard');
+    } catch (error) {
+      setError('An error occurred during login. Please try again.');
+    } finally {
+      setIsPending(false);
+    }
   }
 
  

@@ -43,23 +43,23 @@ export const ResetSchema = z.object({
 })
 
 export const LoginSchema = z.object({
-  email: z.string().email({ message: "Email is required" }),
-  password: z
-    .string()
-    .min(6, 'Password must be at least 6 characters long')
-    .regex(/[0-9]/, 'Password must contain a number')
-    .regex(/[^a-zA-Z0-9]/, 'Password must contain a symbol'),
+  // email: z.string().email({ message: "Email is required" }),
+  // password: z
+  //   .string()
+  //   .min(6, 'Password must be at least 6 characters long')
+  //   .regex(/[0-9]/, 'Password must contain a number')
+  //   .regex(/[^a-zA-Z0-9]/, 'Password must contain a symbol'),
 });
 
 export const RegisterSchema = z.object({
-  firstName: z.string().min(1, { message: "First name is required" }),
-  lastName: z.string().min(1, { message: "Last name is required" }),
-  email: z.string().email({ message: "Email is required" }),
-  password: z
-    .string()
-    .min(6, 'Password must be at least 6 characters long')
-    .regex(/[0-9]/, 'Password must contain a number')
-    .regex(/[^a-zA-Z0-9]/, 'Password must contain a symbol'),
+  // firstName: z.string().min(1, { message: "First name is required" }),
+  // lastName: z.string().min(1, { message: "Last name is required" }),
+  // email: z.string().email({ message: "Email is required" }),
+  // password: z
+  //   .string()
+  //   .min(6, 'Password must be at least 6 characters long')
+  //   .regex(/[0-9]/, 'Password must contain a number')
+  //   .regex(/[^a-zA-Z0-9]/, 'Password must contain a symbol'),
 });
 
 
