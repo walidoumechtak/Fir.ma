@@ -115,7 +115,9 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 <User className="mr-2 h-4 w-4" />
-                <span>Profile</span>
+                <Link href="/profile" className="flex items-center gap-2">
+                  <span>Profile</span>
+                </Link>
               </DropdownMenuItem>
               {/* <DropdownMenuItem>
                 <Settings className="mr-2 h-4 w-4" />
