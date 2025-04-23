@@ -71,6 +71,8 @@ export function LocationStep({ formData, updateFormData, onNext, onBack }: any) 
     if (typeof window !== "undefined") {
       delete (L.Icon.Default.prototype as any)._getIconUrl
       L.Icon.Default.mergeOptions(createMarkerIcon().options)
+    } else {
+      console.warn("Leaflet is not available during SSR.")
     }
   }, [])
 
@@ -103,20 +105,19 @@ export function LocationStep({ formData, updateFormData, onNext, onBack }: any) 
 
     return () => clearTimeout(timer)
   }, [searchTerm])
-
-  // Close search results when clicking outside
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
-        setShowResults(false)
+    if (typeof window !== "undefined") {
+      const handleClickOutside = (e: MouseEvent) => {
+        if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+          setShowResults(false)
+        }
       }
+      document.addEventListener("mousedown", handleClickOutside)
+      return () => document.removeEventListener("mousedown", handleClickOutside)
     }
-
-    // if (typeof window !== "undefined") {
-    //   document.addEventListener("mousedown", handleClickOutside)
-    //   return () => document.removeEventListener("mousedown", handleClickOutside)
-    // }
   }, [])
+    // }
+  // }, [])
 
   const handleLocationSelect = (location: any) => {
     setSelectedLocation({
@@ -228,7 +229,9 @@ export function LocationStep({ formData, updateFormData, onNext, onBack }: any) 
             zoom={zoom}
             style={{ height: "100%", width: "100%" }}
             className="z-0"
-            whenReady={() => mapRef.current?.invalidateSize()}
+            eventHandlers={{
+              click: handleMapClick,
+            }}
             onClick={handleMapClick}
           >
             <TileLayer
