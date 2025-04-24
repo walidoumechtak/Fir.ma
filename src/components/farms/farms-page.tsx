@@ -77,12 +77,12 @@ export function FarmsPage() {
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-gray-800">My Farms</h2>
           <Button onClick={() => setIsModalOpen(true)} className="bg-green-600 hover:bg-green-700">
-            <PlusCircle className="mr-2 h-5 w-5" />
-            Add Farm
+        <PlusCircle className="mr-2 h-5 w-5" />
+        Add Farm
           </Button>
         </div>
 
-        <FarmsList farms={farms} />
+        <FarmsList farms={farms} onAddFarmClick={() => setIsModalOpen(true)} />
       </div>
 
       <AddFarmModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onAddFarm={addFarm} />

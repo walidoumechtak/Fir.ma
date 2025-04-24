@@ -5,15 +5,18 @@ import { Button } from "@/components/ui/button"
 
 interface FarmsListProps {
   farms: Farm[]
+  onAddFarmClick: () => void
 }
 
-export function FarmsList({ farms }: FarmsListProps) {
+export function FarmsList({ farms, onAddFarmClick }: FarmsListProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {farms.map((farm) => (
-        <FarmCard key={farm.id} farm={farm} />
+      <FarmCard key={farm.id} farm={farm} />
       ))}
-      <AddFarmCard />
+      <div onClick={onAddFarmClick}>
+        <AddFarmCard />
+      </div>
     </div>
   )
 }
