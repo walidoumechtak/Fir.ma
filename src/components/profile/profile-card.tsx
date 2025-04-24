@@ -100,12 +100,12 @@ export function ProfileCard({ profile }: ProfileCardProps) {
       {/* Profile Image and Basic Info - Left Column */}
       <Card className="md:col-span-1 overflow-hidden border-none shadow-lg">
         <div className="bg-gradient-to-b from-green-600 to-green-700 pt-8 pb-16 px-4 flex flex-col items-center">
-          <Avatar className="h-32 w-32 border-4 border-white shadow-xl">
-            <AvatarImage src={profile.profileImage || "/placeholder.svg"} alt={profile.fullName} />
-            <AvatarFallback className="text-2xl bg-green-100 text-green-800">
+            <Avatar className="h-32 w-32 border-4 border-white shadow-xl">
+            <AvatarImage src={profile.profileImage || "/avatar.jpeg"} alt={profile.fullName} />
+            <AvatarFallback className="text-2xl bg-gray-200 text-gray-600">
               {getInitials(profile.fullName)}
             </AvatarFallback>
-          </Avatar>
+            </Avatar>
         </div>
         <CardContent className="pt-0 relative">
           <div className="bg-white rounded-lg shadow-md p-6 -mt-12 text-center space-y-3">

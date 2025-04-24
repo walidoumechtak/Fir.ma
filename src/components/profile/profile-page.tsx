@@ -25,7 +25,7 @@ export function ProfilePage() {
   const [profile, setProfile] = useState<UserProfile>({
     fullName: "Mohammed Alami",
     email: "mohammed.alami@example.com",
-    profileImage: "/placeholder.svg?height=200&width=200",
+    profileImage: "/avatar.jpeg",
     communicationChannel: "whatsapp",
     language: "arabic-darija",
     region: "Marrakech-Safi",
