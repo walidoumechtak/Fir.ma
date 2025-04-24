@@ -1,18 +1,19 @@
 import type { Farm } from "@/components/farms/farms-page"
 import { Card, CardContent } from "@/components/ui/card"
-import { MapPin, AlertTriangle, CheckCircle, PlusCircle } from "lucide-react"
+import { MapPin, AlertTriangle, CheckCircle, PlusCircle, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface FarmsListProps {
   farms: Farm[]
   onAddFarmClick: () => void
+  onDeleteFarm: (id: string) => void
 }
 
-export function FarmsList({ farms, onAddFarmClick }: FarmsListProps) {
+export function FarmsList({ farms, onAddFarmClick, onDeleteFarm }: FarmsListProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {farms.map((farm) => (
-      <FarmCard key={farm.id} farm={farm} />
+        <FarmCard key={farm.id} farm={farm} onDeleteFarm={onDeleteFarm} />
       ))}
       <div onClick={onAddFarmClick}>
         <AddFarmCard />
@@ -21,7 +22,7 @@ export function FarmsList({ farms, onAddFarmClick }: FarmsListProps) {
   )
 }
 
-function FarmCard({ farm }: { farm: Farm }) {
+function FarmCard({ farm, onDeleteFarm }: { farm: Farm; onDeleteFarm: (id: string) => void }) {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 border-none shadow-md">
       <div
@@ -66,17 +67,27 @@ function FarmCard({ farm }: { farm: Farm }) {
           <span className={`text-sm font-medium ${farm.status === "good" ? "text-green-600" : "text-red-600"}`}>
             {farm.status === "good" ? "All systems normal" : "Needs attention"}
           </span>
+          <div className="flex gap-2">
             <Button
-            variant="ghost"
-            size="sm"
-            className="text-gray-500 hover:text-gray-700"
-            onClick={() => window.location.href = `/farms/${farm.id}`}
+              variant="ghost"
+              size="sm"
+              className="text-gray-500 hover:text-gray-700"
+              onClick={() => window.location.href = `/farms/${farm.id}`}
             >
-            View
+              View
             </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-red-500 hover:text-red-700"
+              onClick={() => onDeleteFarm(farm.id)}
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </CardContent>
-    </Card>
+    </Card> 
   )
 }
 

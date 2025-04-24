@@ -82,7 +82,11 @@ export function FarmsPage() {
           </Button>
         </div>
 
-        <FarmsList farms={farms} onAddFarmClick={() => setIsModalOpen(true)} />
+        <FarmsList
+          farms={farms}
+          onAddFarmClick={() => setIsModalOpen(true)}
+          onDeleteFarm={(id: string) => setFarms(farms.filter((farm) => farm.id !== id))}
+        />
       </div>
 
       <AddFarmModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onAddFarm={addFarm} />
