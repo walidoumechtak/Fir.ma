@@ -7,7 +7,8 @@ export default function Hero() {
     <section className="h-screen relative">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/farm-back.jpg"
+          // src="/farm-back.jpg"
+          src="/back2.png"
           alt="Agricultural field with modern technology"
           fill
           className="object-cover brightness-[0.7]"
