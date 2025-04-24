@@ -5,6 +5,8 @@ import type React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
+import Image from "next/image"
+
 import { BarChart, Droplets, Home, Menu, Settings, User, LogOut, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -57,8 +59,14 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           </SheetTrigger>
           <SheetContent side="left" className="w-72">
             <div className="flex items-center gap-2 pb-4 pt-2">
-              <Droplets className="h-6 w-6 text-green-600" />
-              <span className="text-lg font-bold">Health Farm</span>
+              {/* <Droplets className="h-6 w-6 text-green-600" />
+              <span className="text-lg font-bold">Health Farm</span> */}
+              <Image 
+                  src="/firma.png"
+                  alt="Logo"
+                  width={50}
+                  height={50}
+                />
               <Button variant="ghost" size="icon" className="ml-auto" onClick={() => setOpen(false)}>
                 <X className="h-5 w-5" />
               </Button>
@@ -82,8 +90,14 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           </SheetContent>
         </Sheet>
         <Link href="/" className="flex items-center gap-2">
-          <Droplets className="h-6 w-6 text-green-600" />
-          <span className="text-lg font-bold hidden md:inline-flex">Health Farm</span>
+          {/* <Droplets className="h-6 w-6 text-green-600" />
+          <span className="text-lg font-bold hidden md:inline-flex">Health Farm</span> */}
+          <Image 
+            src="/firma.png"
+            alt="Logo"
+            width={50}
+            height={50}
+          />
         </Link>
         <nav className="ml-auto flex items-center gap-4">
           <div className="hidden md:flex gap-2">

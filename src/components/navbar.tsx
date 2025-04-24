@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Leaf } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Navbar() {
   return (
@@ -8,8 +9,15 @@ export default function Navbar() {
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
-            <Leaf className="h-6 w-6 text-green-600" />
-            <span className="inline-block font-bold">Fir.ma</span>
+            {/* <Leaf className="h-6 w-6 text-green-600" /> */}
+            <span className="inline-block font-bold">
+              <Image 
+                src="/firma.png"
+                alt="Logo"
+                width={50}
+                height={50}
+              />
+            </span>
           </Link>
           <nav className="hidden gap-6 md:flex">
             <Link
