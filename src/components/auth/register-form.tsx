@@ -5,6 +5,8 @@ import axios from "../../api/axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useRouter } from 'next/navigation';
+
 
 import { RegisterSchema } from "@/schemas";
 import CardWrapper from "./card-wrapper";
@@ -28,6 +30,8 @@ const RegisterForm = () => {
   const [success, setSuccess] = useState<string | undefined>();
   const [isSuccess, setIsSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter()
+
 
   const form = useForm<z.infer<typeof RegisterSchema>>({
     resolver: zodResolver(RegisterSchema),
@@ -46,21 +50,18 @@ const RegisterForm = () => {
   }, []);
 
   const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
-    const formData = new FormData();
-
-    formData.append("firstName", values.firstName);
-    formData.append("lastName", values.lastName);
-    formData.append("email", values.email);
-    formData.append("password", values.password);
-
+   
     try {
       setError("");
       setIsPending(true);
-      await axios.post("register/", formData, {
-        withCredentials: true,
-      });
+      setIsPending(true);
+      // Simulate login logic or API call here
+      // Example: await login(values);
+
+      // Navigate to /dashboard after successful login
       setSuccess("Account created successfully");
       setIsSuccess(true);
+      router.push('/farms');
     } catch (err: any) {
       setIsPending(false);
       if (!err?.response) setError("No Server Response");
