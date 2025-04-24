@@ -66,9 +66,14 @@ function FarmCard({ farm }: { farm: Farm }) {
           <span className={`text-sm font-medium ${farm.status === "good" ? "text-green-600" : "text-red-600"}`}>
             {farm.status === "good" ? "All systems normal" : "Needs attention"}
           </span>
-          <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-700">
+            <Button
+            variant="ghost"
+            size="sm"
+            className="text-gray-500 hover:text-gray-700"
+            onClick={() => window.location.href = `/farms/${farm.id}`}
+            >
             View
-          </Button>
+            </Button>
         </div>
       </CardContent>
     </Card>
