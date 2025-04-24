@@ -33,6 +33,7 @@ export function ProfilePage() {
     farmName: "Alami Olive Farm",
     userType: "farmer",
   })
+  
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 

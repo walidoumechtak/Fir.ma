@@ -19,7 +19,7 @@ export default function Contact() {
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-5 w-5" />
-              <span>+1 (555) 123-4567</span>
+              <span>+92 303 7894439</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-5 w-5" />

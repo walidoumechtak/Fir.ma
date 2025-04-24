@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation"
 import { useState } from "react"
 import Image from "next/image"
 
-import { BarChart, Droplets, Home, Menu, Settings, User, LogOut, X } from "lucide-react"
+import { BarChart, Droplets, Home, Menu, Settings, User, LogOut, X, Tractor } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -27,24 +27,24 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
 
   const routes = [
-    {
-      href: "/dashboard",
-      label: "Dashboard",
-      icon: Home,
-      active: pathname === "/dashboard",
-    },
+    // {
+    //   href: "/dashboard",
+    //   label: "Dashboard",
+    //   icon: Home,
+    //   active: pathname === "/dashboard",
+    // },
     {
       href: "/analytics",
       label: "Analytics",
       icon: BarChart,
       active: pathname === "/analytics",
     },
-    // {
-    //   href: "/settings",
-    //   label: "Settings",
-    //   icon: Settings,
-    //   active: pathname === "/settings",
-    // },
+    {
+      href: "/farms",
+      label: "Farms",
+      icon: Tractor,
+      active: pathname === "/farms",
+    },
   ]
 
   return (
@@ -138,10 +138,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
                 <span>Settings</span>
               </DropdownMenuItem> */}
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => (window.location.href = "/")}>
                 <LogOut className="mr-2 h-4 w-4" />
                 <span>Log out</span>
-              </DropdownMenuItem>
+                </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>

@@ -24,6 +24,17 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+
 const RegisterForm = () => {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<string | undefined>();
@@ -31,6 +42,8 @@ const RegisterForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter()
+  const [formData, setFormData] = useState({})
+  
 
 
   const form = useForm<z.infer<typeof RegisterSchema>>({
@@ -48,6 +61,10 @@ const RegisterForm = () => {
       fileInputRef.current.focus();
     }
   }, []);
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
    
@@ -134,6 +151,61 @@ const RegisterForm = () => {
                     )}
                   />
                 </div>
+                <div className="space-y-2">
+                    <Label htmlFor="communicationChannel" className="text-gray-700">
+                      Preferred Communication Channel
+                    </Label>
+                    <Select
+                      value={formData.communicationChannel}
+                      onValueChange={(value) => handleSelectChange("communicationChannel", value)}
+                    >
+                      <SelectTrigger id="communicationChannel" className="border-gray-300 focus:ring-green-500">
+                        <SelectValue placeholder="Select preferred channel" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="mobile-app">Mobile App</SelectItem>
+                        <SelectItem value="whatsapp">WhatsApp</SelectItem>
+                        <SelectItem value="sms">SMS</SelectItem>
+                        <SelectItem value="voice-calls">Voice Calls</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+
+                    {/* User Type */}
+                    <div className="space-y-4 bg-gray-50 p-4 rounded-lg">
+                      <h3 className="text-sm font-medium text-gray-700 border-l-4 border-green-600 pl-2">User Type</h3>
+                      <div className="space-y-2">
+                        <Select onValueChange={(value) => handleSelectChange("userType", value)}>
+                          <SelectTrigger id="userType" className="border-gray-300 focus:ring-green-500">
+                            <SelectValue placeholder="Select user type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="farmer">Farmer</SelectItem>
+                            <SelectItem value="technician">Technician</SelectItem>
+                            <SelectItem value="advisor">Advisor / Engineer</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      {formData.userType === "other" && (
+                        <div className="space-y-2">
+                          <Label htmlFor="otherUserType" className="text-gray-700">
+                            Please specify
+                          </Label>
+                          <Input
+                            id="otherUserType"
+                            name="otherUserType"
+                            value={formData.otherUserType || ""}
+                            onChange={handleInputChange}
+                            placeholder="Specify your user type"
+                            className="border-gray-300 focus:border-green-500 focus:ring-green-500"
+                          />
+                        </div>
+                      )}
+                    </div>
+
+
                 <FormField
                   control={form.control}
                   name="email"
